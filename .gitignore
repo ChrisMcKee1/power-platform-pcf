@@ -13,5 +13,9 @@
 **/bin
 **/obj
 
+# package and deploy generated directories
+**/Solutions
+
+
 # MSBuild Binary and Structured Log
 *.binlog
