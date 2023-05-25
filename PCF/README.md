@@ -16,19 +16,19 @@ Follow these steps to set up your PCF component:
     cd .\pcf\
     ```
 
-3. **Install npm packages**: 
+3. **Install npm packages**:
 
     ```shell
     npm install
     ```
 
-4. **Refresh the types**: 
+4. **Refresh the types**:
 
     ```shell
     npm run refreshTypes
     ```
 
-5. **Build the project**: 
+5. **Build the project**:
 
     ```shell
     npm run build
@@ -85,4 +85,3 @@ Follow these steps to set up your PCF component:
     ```shell
     pac solution import -p .\bin\Release\PCF.zip -pc
     ```
-
