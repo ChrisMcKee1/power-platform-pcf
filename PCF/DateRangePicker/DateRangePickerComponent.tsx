@@ -59,7 +59,7 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
       }}
     >
       <DatePicker
-        style= {{width: containerWidth, height: containerHeight }}
+        style= {{width: containerWidth/2 - 8, height: containerHeight }}
         label="Start Date"
         placeholder="Select a start date"
         allowTextInput
@@ -72,7 +72,7 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
 
       <DatePicker
         componentRef={endDatePickerRef}
-        style= {{width: containerWidth, height: containerHeight }}
+        style= {{width: containerWidth/2 - 8, height: containerHeight }}
         label="End Date"
         placeholder="Select an end date"
         allowTextInput
