@@ -19,3 +19,8 @@
 
 # MSBuild Binary and Structured Log
 *.binlog
+PCF/DateRangePicker/DateRange/src/Other/Relationships.xml
+PCF/DateRangePicker/DateRange/DateRange.cdsproj
+PCF/DateRangePicker/DateRange/.gitignore
+PCF/DateRangePicker/DateRange/src/Other/Customizations.xml
+PCF/DateRangePicker/DateRange/src/Other/Solution.xml
