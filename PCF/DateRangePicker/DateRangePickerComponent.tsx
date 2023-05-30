@@ -21,7 +21,6 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
   const [startDate, setStartDate] = React.useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = React.useState<Date | undefined>(undefined);
 
-  const endDatePickerRef: IRefObject<IDatePicker> = React.useRef(null);
 
   const handleStartDateChange = React.useCallback((date: Date | null | undefined) => {
     setStartDate(date || undefined);
@@ -77,7 +76,6 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
       />
 
       <DatePicker
-        componentRef={endDatePickerRef}
         style= {{width: containerWidth/2 - 8, height: containerHeight }}
         label="End Date"
         placeholder="Select an end date"
