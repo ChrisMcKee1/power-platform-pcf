@@ -26,12 +26,19 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
   const handleStartDateChange = React.useCallback((date: Date | null | undefined) => {
     setStartDate(date || undefined);
     if (date && (!endDate || date > endDate)) {
-      setEndDate(date || undefined);
+      if (onEndDateChange) {
+        setEndDate(date);
+        onEndDateChange(date);
+      }
+    } else if (date && endDate && date < endDate) {
+      setEndDate(date);
+    } else if (date && !endDate) {
+      setEndDate(date);
     }
     if (onStartDateChange) {
       onStartDateChange(date || undefined);
     }
-  }, [endDate, onStartDateChange]);
+  }, [endDate, onEndDateChange, onStartDateChange]);
 
   const handleEndDateChange = React.useCallback((date: Date | null | undefined) => {
     setEndDate(date || undefined);
@@ -66,7 +73,6 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
         value={startDate}
         onSelectDate={handleStartDateChange}
         firstDayOfWeek={DayOfWeek.Sunday}
-        isRequired={true}
         minDate={minDate}
       />
 
@@ -79,7 +85,6 @@ const DateRangePickerComponent: React.FunctionComponent<DateRangePickerProps> = 
         value={endDate}
         onSelectDate={handleEndDateChange}
         firstDayOfWeek={DayOfWeek.Sunday}
-        isRequired={true}
         minDate={startDate}
         maxDate={maxDate}
       />
