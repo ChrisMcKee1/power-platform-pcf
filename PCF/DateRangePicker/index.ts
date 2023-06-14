@@ -1,7 +1,7 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes"; // Importing the input and output types from the generated ManifestTypes
 import DateRangePickerComponent from "./DateRangePickerComponent"; // Importing the DateRangePicker component
 import * as React from "react"; // Importing React
-//import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export class DateRangePicker implements ComponentFramework.ReactControl<IInputs, IOutputs> {
     // Private variables
@@ -9,12 +9,12 @@ export class DateRangePicker implements ComponentFramework.ReactControl<IInputs,
     private notifyOutputChanged: () => void; // Callback to notify the framework about output changes
     private startDate: Date | null | undefined; // Start date value
     private endDate: Date | null | undefined; // End date value
-    //private uuid: string;
+    private uuid: string;
     private workaroundFlag: boolean
 
     constructor() {
-        //this.uuid = uuid()
-        //console.log(`#### Constructor(): ${this.uuid}`)
+        this.uuid = uuid()
+        console.log(`#### Constructor(): ${this.uuid}`)
         this.workaroundFlag = false
     }
 
@@ -23,15 +23,17 @@ export class DateRangePicker implements ComponentFramework.ReactControl<IInputs,
         notifyOutputChanged: () => void,
         state: ComponentFramework.Dictionary
     ): void {
-        //console.log(`### init(defStart=${context.parameters.DefaultStartDate.raw}, defEnd=${context.parameters.DefaultEndDate.raw}): ${this.uuid}`)
-        context.mode.trackContainerResize(true); // Track container resize
-        this.notifyOutputChanged = notifyOutputChanged;
+        console.log(`### init(defStart=${context.parameters.DefaultStartDate.raw}, defEnd=${context.parameters.DefaultEndDate.raw}): ${this.uuid}`)
+        context.mode.trackContainerResize(true); // Track container resize 
+        // this.notifyOutputChanged = notifyOutputChanged;       
         this.startDate = context.parameters.DefaultStartDate.raw || new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-1);
         this.endDate = context.parameters.DefaultEndDate.raw || new Date();
+        this.notifyOutputChanged = notifyOutputChanged;
+        this.notifyOutputChanged();
     }
 
     private handleStartDateChange = (date: Date | null | undefined): void => {
-        //console.log(`### handleStartDateChange(): ${this.uuid}`)
+        console.log(`### handleStartDateChange(): ${this.uuid}`)
         this.startDate = date; // Update the start date property with the selected date
         if (date && (!this.endDate || date > this.endDate)) {
             this.endDate = this.startDate
@@ -41,7 +43,7 @@ export class DateRangePicker implements ComponentFramework.ReactControl<IInputs,
     };
 
     private handleEndDateChange = (date: Date | null | undefined): void => {
-        //console.log(`### handleEndDateChange(): ${this.uuid}`)
+        console.log(`### handleEndDateChange(): ${this.uuid}`)
         this.endDate = date; // Update the end date property with the selected date
         if (date && (!this.startDate || date < this.startDate)) {
             this.startDate = this.endDate
@@ -52,7 +54,7 @@ export class DateRangePicker implements ComponentFramework.ReactControl<IInputs,
 
 
     public updateView(context: ComponentFramework.Context<IInputs>): React.ReactElement {
-        //console.log(`### updateView(start=${this.startDate}, end=${this.endDate}, defStart=${context.parameters.DefaultStartDate.raw}, defEnd=${context.parameters.DefaultEndDate.raw}): ${this.uuid}`)
+        console.log(`### updateView(start=${this.startDate}, end=${this.endDate}, defStart=${context.parameters.DefaultStartDate.raw}, defEnd=${context.parameters.DefaultEndDate.raw}): ${this.uuid}`)
         let width = context.mode.allocatedWidth;
         let height = context.mode.allocatedHeight;
 
@@ -80,7 +82,7 @@ export class DateRangePicker implements ComponentFramework.ReactControl<IInputs,
     }
 
     public getOutputs(): IOutputs {
-        //console.log(`### getOutputs(): ${this.uuid}`)
+        console.log(`### getOutputs(): ${this.uuid}`)
         return {
             StartDate: this.startDate || undefined, // Return the current start date value as an output
             EndDate: this.endDate || undefined // Return the current end date value as an output
