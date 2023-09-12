@@ -14,6 +14,7 @@ DatasetToExcel is a code component that can be used in powerapps to export any d
 - Columns order based on selected fields in fields property
 - Loading indicator
 - customizable button (color,fill,font color,font size, border radius,border color)
+- Selected Columns to filter DataSet down to only the columns you care about. 
 
 
 **_Dataset to excel_** custom control is a pcf code compoent to export ant dataset within microsoft powerapps to excel file as simple as dealing with powerapps standard gallery
@@ -30,11 +31,13 @@ Here is how to add the component to your microsoft dynamic 365:
 
 ## Usage
 
-Insert the data collection to "Items" property, once the button clicked, the component should download Excel file containing the data in collection
+1. Insert the data collection to "Items" property
+2. Insert a collection that contain at least one Column example name is ColName with the rows being the column names of the DataSet you wish to export.
+3. Map ColName to the Column Property.
+4. Under Properties Select Fields then select all the columns
+5. Optional - Update the FileName property.
+6. Next you should download Excel file containing the data in collection
 
-- Remember to add desired fields in component fields property
 - You can change the apearance of button by changing the component properties for color, icon text color, etc..
 
-
-###### _Powered by Hussam Aoldat._
-###### _linkedin: [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73)_
+Hussam Aoldat [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73)_code was used to get started, I built on top of this code to add the custom SelectedColumns Functionality.
