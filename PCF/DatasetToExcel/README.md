@@ -1,10 +1,6 @@
 # Export Dataset to Excel file code component
 ---
 ### _Powerapp code component to export dataset to excel file_
-#
-#
-#
-
 
 DatasetToExcel is a code component that can be used in powerapps to export any dataset to an excel file with features:
 
@@ -30,6 +26,8 @@ Here is how to add the component to your microsoft dynamic 365:
 
 
 ## Usage
+
+### [Download Zip](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip)
 
 1. Insert the data collection to "Items" property
 2. Insert a collection that contain at least one Column example name is ColName with the rows being the column names of the DataSet you wish to export.
