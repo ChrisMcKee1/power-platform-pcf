@@ -40,4 +40,4 @@ Here is how to add the component to your microsoft dynamic 365:
 
 - You can change the apearance of button by changing the component properties for color, icon text color, etc..
 
-Hussam Aoldat [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73)_code was used to get started, I built on top of this code to add the custom SelectedColumns Functionality.
+[Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) code was used to get started, I built on top of this code to add the custom SelectedColumns Functionality.
