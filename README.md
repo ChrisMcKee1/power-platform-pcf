@@ -15,7 +15,7 @@ I specialize in creating custom PCF (PowerApps Component Framework) controls tai
 Feel free to grab my code, play with it, and mold it to fit your requirements. Whether you're looking to understand the intricacies of PCF controls or integrate them into your projects, you're welcome to do as you please!
 
 ```bash
-git clone [[repository-link]](https://github.com/ChrisMcKee1/power-platform-pcf.git)
+git clone [repository-link](https://github.com/ChrisMcKee1/power-platform-pcf.git)
 cd power-platform-pcf
 ```
 
