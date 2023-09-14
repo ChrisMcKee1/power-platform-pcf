@@ -27,100 +27,74 @@ export interface IDatasetToExcelProps {
     buttonProps: IMakerButtonProps;
     dataSet: ComponentFramework.PropertyTypes.DataSet;
     selectedColumns: ComponentFramework.PropertyTypes.DataSet;
-    //PropertyHelper.DataSetApi.Column[];
     fileName: string;
     itemsLoading: boolean;
     isLoading: boolean;
 }
 
-
 export const ComponentRenderer = (props: IDatasetToExcelProps) => {
     const { makerStyleProps, buttonProps, dataSet, selectedColumns, fileName, itemsLoading, isLoading } = props;
-
     const buttonIcon: IIconProps = { iconName: buttonProps.iconName };
 
-    //const readyToExport = dataToExport ? true : false;
-
-    const handleClick = (event: any) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         console.log("Total Records: ", dataSet.paging.totalResultCount);
-        /* eslint-disable no-mixed-spaces-and-tabs */
         const dataToExport = prepareData(dataSet, selectedColumns);
         const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataToExport);
         const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
         XLSX.writeFile(workbook, `${fileName}.xlsx`);
-        /* eslint-enable no-mixed-spaces-and-tabs */
     }
 
-    return (
-        <>
-            {itemsLoading || isLoading && (
-                <DefaultButton
-                    styles={getStyle(makerStyleProps)}
-                    title="Loading data"
-                    ariaLabel="Loading data"
-                    disabled={true}
-                    checked={false}
-                    onClick={handleClick}
-                    onRenderIcon={() => <Spinner label="Loading data" />}
-                >
-                </DefaultButton>
-            )}
+    const isLoadingState = itemsLoading || isLoading;
 
-            {!itemsLoading && !isLoading && (
-                <DefaultButton
-                    styles={getStyle(makerStyleProps)}
-                    iconProps={buttonIcon}
-                    title="Export To Excel"
-                    ariaLabel="Export To Excel"
-                    disabled={false}
-                    checked={false}
-                    onClick={handleClick}
-                >
-                    {buttonProps.buttonText}
-                </DefaultButton>
-            )}
-        </>
-    )
+    return (
+        <DefaultButton
+            styles={getStyle(makerStyleProps)}
+            title={isLoadingState ? "Loading data" : "Export To Excel"}
+            ariaLabel={isLoadingState ? "Loading data" : "Export To Excel"}
+            disabled={isLoadingState}
+            checked={false}
+            onClick={handleClick}
+            iconProps={isLoadingState ? undefined : buttonIcon}
+            onRenderIcon={isLoadingState ? () => <Spinner label="Loading data" /> : undefined}
+        >
+            {isLoadingState ? null : buttonProps.buttonText}
+        </DefaultButton>
+    );
 };
 
-const getColumnNames = (updateColumns: ComponentFramework.PropertyTypes.DataSet) => {
-    var columns: any = [];
-    var tmpList: string[] = updateColumns.columns.map((col: any) => col.name);
-    updateColumns.sortedRecordIds.map((colId: any) => {
-        columns.push(updateColumns.records[colId].getValue(tmpList[0]))
-    });
-    return columns
+type DataSet = ComponentFramework.PropertyTypes.DataSet;
+
+const getColumnNames = (updateColumns: DataSet): string[] => {
+    const tmpList: string[] = updateColumns.columns.map(col => col.name);
+    return updateColumns.sortedRecordIds.map(colId => updateColumns.records[colId].getValue(tmpList[0])) as string[];
 }
 
-const prepareData = (dataSet: ComponentFramework.PropertyTypes.DataSet, updateColumns: ComponentFramework.PropertyTypes.DataSet | null = null) => {
-    var data: any = [];
+const prepareData = (dataSet: DataSet, updateColumns: DataSet | null = null): any[] => {
+    const data: any[] = [];
 
     if (updateColumns) {
-        const columnList: any = getColumnNames(updateColumns);
-        dataSet.sortedRecordIds.map((recId: any) => {
-            var record: any = {};
-            dataSet.columns.map((col: any) => {
-                if (columnList.find((colName: string) => colName === col.name)) {
+        const columnList: string[] = getColumnNames(updateColumns);
+        dataSet.sortedRecordIds.forEach(recId => {
+            const record: any = {};
+            dataSet.columns.forEach(col => {
+                if (columnList.includes(col.name)) {
                     record[col.name] = dataSet.records[recId].getValue(col.name);
                     data.push(record);
                 }
-            })
+            });
         });
-    } else if (!updateColumns) {
-        dataSet.sortedRecordIds.map((recId: any) => {
-            var record: any = {};
-            dataSet.columns.map((col: any) => {
-
+    } else {
+        dataSet.sortedRecordIds.forEach(recId => {
+            const record: any = {};
+            dataSet.columns.forEach(col => {
                 const colName: string = col?.name;
-                record[colName] = dataSet.records[recId].getValue(colName)
+                record[colName] = dataSet.records[recId].getValue(colName);
             });
             data.push(record);
         });
-
     }
     return data;
 }
-
 
 
 const getStyle = (styleProps: IMakerStyleProps) => {

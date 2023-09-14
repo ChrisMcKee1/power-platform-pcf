@@ -4,7 +4,6 @@ import { IDatasetToExcelProps, IMakerButtonProps, IMakerStyleProps } from "./Com
 import { ComponentRenderer } from "./ComponentRenderer";
 
 export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IInputs, IOutputs> {
-    private theComponent: ComponentFramework.ReactControl<IInputs, IOutputs>;
     private notifyOutputChanged: () => void;
 
     /**
@@ -35,42 +34,48 @@ export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IIn
      * @returns ReactElement root react element for the control
      */
     public updateView(context: ComponentFramework.Context<IInputs>): React.ReactElement {
+        const {
+            TextColor, BGColor, IconColor, HoverTextColor, HoverBGColor, BorderColor,
+            BorderHoverColor, BorderWidth, BorderRadius, Text, IconName, FileName, Loading
+        } = context.parameters;
+    
         const stylesProps: IMakerStyleProps = {
-            textColor: context.parameters.TextColor.raw! || "black",
-            bgColor: context.parameters.BGColor.raw! || "rgb(0,0,0,0)",
-            iconColor: context.parameters.IconColor.raw! || "inherit",
-            hoverTextColor: context.parameters.HoverTextColor.raw! || context.parameters.TextColor.raw! || "black",
-            hoverBgColor: context.parameters.HoverBGColor.raw! || "rgba(0,0,0,0)",
-            borderColor: context.parameters.BorderColor.raw! || "rgba(0,0,0,0)",
-            borderHoverColor: context.parameters.BorderHoverColor.raw! || "rgba(0,0,0,0)",
-            borderWidth: context.parameters.BorderWidth.raw! || 1,
-            borderRadius: context.parameters.BorderRadius.raw || 0,
+            textColor: TextColor.raw || "black",
+            bgColor: BGColor.raw || "rgba(0,0,0,0)",
+            iconColor: IconColor.raw || "inherit",
+            hoverTextColor: HoverTextColor.raw || TextColor.raw || "black",
+            hoverBgColor: HoverBGColor.raw || "rgba(0,0,0,0)",
+            borderColor: BorderColor.raw || "rgba(0,0,0,0)",
+            borderHoverColor: BorderHoverColor.raw || "rgba(0,0,0,0)",
+            borderWidth: BorderWidth.raw || 1,
+            borderRadius: BorderRadius.raw || 0,
             buttonWidth: context.mode.allocatedWidth,
             buttonHeight: context.mode.allocatedHeight
         };
-
+    
         const buttonUiProps: IMakerButtonProps = {
-            buttonText: context.parameters.Text.raw! || "",
-            iconName: context.parameters.IconName.raw! || "ExcelDocument"
+            buttonText: Text.raw || "",
+            iconName: IconName.raw || "ExcelDocument"
         }
-
+    
         const dataSet = context.parameters.DatasetToExport;
         const selectedColumns = context.parameters.SelectedColumns;
-
+    
         const props: IDatasetToExcelProps = {
             makerStyleProps: stylesProps,
             buttonProps: buttonUiProps,
             dataSet: dataSet,
             selectedColumns: selectedColumns,
-            fileName: context.parameters.FileName.raw! || `generated_file_${Date.now()}`,
+            fileName: FileName.raw || `generated_file_${Date.now()}`,
             itemsLoading: dataSet.loading,
-            isLoading: context.parameters.Loading.raw! // this can be set by the app maker
+            isLoading: Loading.raw // this can be set by the app maker
         };
-
+    
         return React.createElement(
             ComponentRenderer, props
         );
     }
+    
 
     /**
      * It is called by the framework prior to a control receiving new data.
