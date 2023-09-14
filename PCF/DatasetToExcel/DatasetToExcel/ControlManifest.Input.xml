@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="McKeeCorp" constructor="ExportDatasetToExcel" version="1.0.15" display-name-key="ExportDatasetToExcel" description-key="Export Dataset to excel file" control-type="virtual">
+  <control namespace="McKeeCorp" constructor="ExportDatasetToExcel" version="1.0.16" display-name-key="ExportDatasetToExcel" description-key="Export Dataset to excel file" control-type="virtual">
     <external-service-usage enabled="false">
     </external-service-usage>
     <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
