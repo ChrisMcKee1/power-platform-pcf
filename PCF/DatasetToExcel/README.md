@@ -45,16 +45,16 @@ To import this component to your Power Platform tenant:
 
 ## Control Properties
 
-| Property        |          Description                     | Default          | Example         |
-|-----------------|------------------------------------------|:----------------:|:---------------:|
-| BGColor         | Background color for the export icon     | "white"          | "red"           |
-| BorderColor     | Border color for the export icon         | "black"          | "green"         |
-| BorderHoverColor| Border hover color for the export icon   | "black"          | "orange"        |
-| BorderRadius    | Border radius for the export icon        | 0                |                 |
-| BorderWidth     | Border width for the export icon         | 0                |                 |
-| Column          | Column Name                              | ""               | "Value"         |
-| ContentLanguage | ISO3166 lanuage code of the content      | "en-us"          |
-| DisplayMode     | Configures whether the control allows user input (Edit), only displays data (View) or is disabled (Disabled). | DisplayMode.Edit |
-| FileName        | Filename to export                       | ""               | "Export.xlsx"   |
+| Property         | Description                                                                                                   |     Default      |    Example    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- | :--------------: | :-----------: |
+| BGColor          | Background color for the export icon                                                                          |     "white"      |     "red"     |
+| BorderColor      | Border color for the export icon                                                                              |     "black"      |    "green"    |
+| BorderHoverColor | Border hover color for the export icon                                                                        |     "black"      |   "orange"    |
+| BorderRadius     | Border radius for the export icon                                                                             |        0         |               |
+| BorderWidth      | Border width for the export icon                                                                              |        0         |               |
+| Column           | Column Name                                                                                                   |        ""        |    "Value"    |
+| ContentLanguage  | ISO3166 lanuage code of the content                                                                           |        ""        |    "en-us     |
+| DisplayMode      | Configures whether the control allows user input (Edit), only displays data (View) or is disabled (Disabled). | DisplayMode.Edit |
+| FileName         | Filename to export                                                                                            |        ""        | "Export.xlsx" |
 
 [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) code was used to get started, I built on top of this code to add the custom SelectedColumns Functionality.
