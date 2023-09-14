@@ -1,29 +1,34 @@
 # Export Dataset to Excel file code component
+
 ---
+
 ### _Powerapp code component to export dataset to excel file_
 
 DatasetToExcel is a code component that can be used in powerapps to export any dataset to an excel file with features:
 
 ## Features
 
-- Columns name based on selected fields in fields property
-- Columns order based on selected fields in fields property
+- Column names based on selected fields in fields property
+- Column ordering based on selected fields in fields property
 - Loading indicator
-- customizable button (color,fill,font color,font size, border radius,border color)
-- Selected Columns to filter DataSet down to only the columns you care about. 
+- Customizable export button (color, fill, font color, font size, border radius, and border color)
+- Selectable Columns to filter the DataSet down to only the columns you would like to export.
 
-
-**_Dataset to excel_** custom control is a pcf code compoent to export ant dataset within microsoft powerapps to excel file as simple as dealing with powerapps standard gallery
-with customizable button to match your app style.
+The **_Dataset to excel_** custom control is a PCF code component to export any dataset within Microsoft PowerApps to an Excel file. It is as simple as working with PowerApps out-of-box gallery control.
+It includes a customizable button to match your PowerApps theme and style.
 
 ## Import the component to your tenant
 
-Here is how to add the component to your microsoft dynamic 365:
-- Before start using the component, you need to enable the Code Component in your environment if it is not enabled.
-- from github repo releases, download the latest released solution.
-- in you microsoft account navigate to powerapps, then solutions and select import solution, then continue importing the solution that you have downloaded from github.
-- if solution imported successfully, open the app that you want to use the component in it, then select Insert menu form the left side bar, then in yhe bottom of the side bar, select **_Get more components_**, this will open a dialog in the right side, the dialog has 2 tabs, **_canvas_** and **_code_**, select code tab, then find DatasetToExcel component and import it.
+To import this component to your Power Platform tenant:
 
+- Before start using the component, you need to enable the [Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) in your environment, if it is not already enabled.
+- From the GitHub repo releases, download the latest released version of the DatasetToExcel solution.
+- In your microsoft account navigate to powerapps, then solutions and select import solution, then continue importing the solution that you have downloaded from github.
+- Once the solution has been imported successfully:
+  - Create a new, or open an existing Power App that you want to use the component in.
+  - Select the _Insert_ menu form the left or top bar
+  - In the bottom of the side bar, select **_Get more components_**, this will open a dialog in the right side with 2 tabs, **_canvas_** and **_code_**. Select the _code_ tab.
+  - Select the DatasetToExcel component and import it.
 
 ## Usage
 
