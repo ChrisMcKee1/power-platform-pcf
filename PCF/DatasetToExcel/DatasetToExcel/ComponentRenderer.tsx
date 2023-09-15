@@ -79,9 +79,9 @@ const prepareData = (dataSet: DataSet, updateColumns: DataSet | null = null): an
             dataSet.columns.forEach(col => {
                 if (columnList.includes(col.name)) {
                     record[col.name] = dataSet.records[recId].getValue(col.name);
-                    data.push(record);
                 }
             });
+            data.push(record);  // <-- Moved outside of the inner loop
         });
     } else {
         dataSet.sortedRecordIds.forEach(recId => {
@@ -95,6 +95,7 @@ const prepareData = (dataSet: DataSet, updateColumns: DataSet | null = null): an
     }
     return data;
 }
+
 
 
 const getStyle = (styleProps: IMakerStyleProps) => {
