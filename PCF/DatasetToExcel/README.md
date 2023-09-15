@@ -23,18 +23,18 @@ It includes a customizable button to match your Power Apps theme and style.
 
 To import this component to your Power Platform tenant:
 
-- Before start using the component, you need to enable the [Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) in your environment, if it is not already enabled.
+- Before attempting to import the component, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the environment you will be importing it into.
 - From the GitHub repo releases, download the latest released version of the DatasetToExcel solution.
 - Navigate to [Power Apps](https://make.powerapps.com) and log in with your Microsoft work or school account.
 - Select **_Solutions_**
 - Select **_Import solution_**
-- Select the compressed file downloaded from the DatasetToExcel GitHub repo.
-- Once the solution has been imported successfully:
-  - Create a new, or open an existing Power App that you would like to use the DatasetToExcel component in.
-  - Select the _Insert_ menu form the left or top bar
-  - In the bottom of the side bar, select **_Get more components_**, or if it's not visible, select **_Components_** in the Tree View and select the ellipsis (...) and select **_Import components_**
+- Select the compressed .ZIP file you downloaded from the [DatasetToExcel GitHub repo](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip).
+- Once the _DatasetToExcel_ solution has been imported successfully:
+  - Create a new, or open an existing Power App that you would like to utilize the DatasetToExcel component in.
+  - Select the _Insert_ menu form the left or top bar.
+  - In the bottom of the side bar, select **_Get more components_**, or if it's not visible, select **_Components_** in the Tree View and select the ellipsis (...) and select **_Import components_**.
   - This will open a dialog in the right side with 2 tabs, **_canvas_** and **_code_**. Select the _code_ tab.
-  - Select the DatasetToExcel component to import it.
+  - Select the downloaded _DatasetToExcel.zip_ component to import it.
 
 ## Usage
 
