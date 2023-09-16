@@ -21,20 +21,25 @@ It includes a customizable button to match your Power Apps theme and style.
 
 ## Import the component to your tenant
 
-To import this component to your Power Platform tenant:
+### Pre-requisites
 
-- Before attempting to import the component, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the environment you will be importing it into.
+Before attempting to import this component, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the environment you will be importing it into.
+
 - From the GitHub repo releases, download the latest released version of the DatasetToExcel solution.
-- Navigate to [Power Apps](https://make.powerapps.com) and log in with your Microsoft work or school account.
+
+### Installation
+
+- Navigate to [https://make.powerapps.com](https://make.powerapps.com) and log in with your Microsoft work or school account.
+- Select the appropriate Environment that you wish to utilize this component in.
 - Select **_Solutions_**
 - Select **_Import solution_**
-- Select the compressed .ZIP file you downloaded from the [DatasetToExcel GitHub repo](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip).
+- Select the compressed .ZIP file downloaded from the [DatasetToExcel GitHub repo](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip).
 - Once the _DatasetToExcel_ solution has been imported successfully:
-  - Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
-  - Select the **_Insert_** menu from the left or top bar.
-  - In the bottom of the side bar, select **_Get more components_**. If this option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
-  - A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the _code_ tab.
-  - Select the DatasetToExcel component to import it into your application.
+  1.  Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
+  2.  Select the **_Insert_** menu from the left or top bar.
+  3.  In the bottom of the side bar, select **_Get more components_**. If this option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
+  4.  A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
+  5.  Select the _DatasetToExcel_ component to import it into your application.
 
 ## Usage
 
@@ -44,7 +49,7 @@ To import this component to your Power Platform tenant:
 4. In the Properties pane, Select **_Fields_**, to select each of your dataset's columns that you would like to make available in your Power App for use in both display and exporting.
 5. Click on the DatasetToExcel control while playing your Power App to perform the data export action. You should be prompted to save the resulting Excel .xlsx spreadsheet containing the data in the configured collection.
 
-> _Optional_ - Update any of the DatasetToExcel control properties to configure the control to your desired configuration as displayed in the _Control Properties_ table below, as desired.
+_Optional_ - Update any of the DatasetToExcel control properties to configure the control to your desired configuration as displayed in the _Control Properties_ table below, as desired.
 
 > ### You can change the appearance and functionality of the control by modifying any of the following supported properties:
 >
@@ -72,4 +77,4 @@ To import this component to your Power Platform tenant:
 > | OnSelect              | The actions to take upon double-clicking                                                                      |                  |               |
 > | SelectedColumns_Items | The user selected columns to include in the exported spreadsheet (Table/Collection)                           |                  |               |
 
-Thanks to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. While it helped to solve a primary business requirement within our project, it did not include support for the dynamic section of individual columns to export to the Excel _.xlsx_ spreadsheet.
+Thanks to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. While it helped to solve a primary business requirement within our project, it did not include an option required to allow the dynamic selection of individual columns based on the original dataset to export to the Excel _.xlsx_ spreadsheet.
