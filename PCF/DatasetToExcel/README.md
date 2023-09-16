@@ -30,35 +30,46 @@ To import this component to your Power Platform tenant:
 - Select **_Import solution_**
 - Select the compressed .ZIP file you downloaded from the [DatasetToExcel GitHub repo](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip).
 - Once the _DatasetToExcel_ solution has been imported successfully:
-  - Create a new, or open an existing Power App that you would like to utilize the DatasetToExcel component in.
-  - Select the _Insert_ menu form the left or top bar.
-  - In the bottom of the side bar, select **_Get more components_**, or if it's not visible, select **_Components_** in the Tree View and select the ellipsis (...) and select **_Import components_**.
-  - This will open a dialog in the right side with 2 tabs, **_canvas_** and **_code_**. Select the _code_ tab.
-  - Select the downloaded _DatasetToExcel.zip_ component to import it.
+  - Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
+  - Select the **_Insert_** menu from the left or top bar.
+  - In the bottom of the side bar, select **_Get more components_**. If this option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
+  - A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the _code_ tab.
+  - Select the DatasetToExcel component to import it into your application.
 
 ## Usage
 
 1. Insert the collection containing the data to export into _Items_ property.
-2. Create a collection that contains at least one Column example name is ColName with the rows being the column names of the DataSet you wish to export.
-3. Map ColName to the Column Property.
-4. Under Properties Select Fields then select all the columns
-5. Optional - Update the FileName property.
-6. Next you should download Excel file containing the data in collection
+2. Create a collection that contains at least one Column (ie: "ColName") with the rows being the column names of the DataSet you wish to export.
+3. _Needs Update: Map ColName to the Column Property._
+4. In the Properties pane, Select **_Fields_**, to select each of your dataset's columns that you would like to make available in your Power App for use in both display and exporting.
+5. Click on the DatasetToExcel control while playing your Power App to perform the data export action. You should be prompted to save the resulting Excel .xlsx spreadsheet containing the data in the configured collection.
 
-- You can change the apearance of the control's button by modifying any of the component's control properties. The configurable properties of the custom control are as follows:
+> _Optional_ - Update any of the DatasetToExcel control properties to configure the control to your desired configuration as displayed in the _Control Properties_ table below, as desired.
 
-## Control Properties
+> ### You can change the appearance and functionality of the control by modifying any of the following supported properties:
+>
+> ## Control Properties
+>
+> | Property              | Description                                                                                                   |     Default      |    Example    |
+> | --------------------- | ------------------------------------------------------------------------------------------------------------- | :--------------: | :-----------: |
+> | BGColor               | Background color for the export icon                                                                          |     "white"      |     "red"     |
+> | BorderColor           | Border color for the export icon                                                                              |     "black"      |    "green"    |
+> | BorderHoverColor      | Border hover color for the export icon                                                                        |     "black"      |   "orange"    |
+> | BorderRadius          | Border radius for the export icon                                                                             |        0         |               |
+> | BorderWidth           | Border width for the export icon                                                                              |        0         |               |
+> | Column                | Column Names                                                                                                  |        ""        |    "Value"    |
+> | ContentLanguage       | ISO 3166 lanuage code of the content being exported                                                           |        ""        |    "en-us"    |
+> | DisplayMode           | Configures whether the control allows user input (Edit), only displays data (View) or is disabled (Disabled). | DisplayMode.Edit |               |
+> | FileName              | Filename to export                                                                                            |        ""        | "Export.xlsx" |
+> | HoverBGColor          | Hover Background Color                                                                                        |                  |               |
+> | HoverTextColor        | Hover Text Color                                                                                              |                  |               |
+> | IconColor             | Icon Color                                                                                                    |                  |               |
+> | IconName              | Icon Name                                                                                                     |                  |               |
+> | InputEvent            |                                                                                                               |                  |               |
+> | Items                 | Collection to use for the XLSX export (Table/Collection)                                                      |                  |               |
+> | Loading               | Loading spinner                                                                                               |                  |               |
+> | OnChange              | The actions to take upon single-clicking                                                                      |                  |               |
+> | OnSelect              | The actions to take upon double-clicking                                                                      |                  |               |
+> | SelectedColumns_Items | The user selected columns to include in the exported spreadsheet (Table/Collection)                           |                  |               |
 
-| Property         | Description                                                                                                   |     Default      |    Example    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------- | :--------------: | :-----------: |
-| BGColor          | Background color for the export icon                                                                          |     "white"      |     "red"     |
-| BorderColor      | Border color for the export icon                                                                              |     "black"      |    "green"    |
-| BorderHoverColor | Border hover color for the export icon                                                                        |     "black"      |   "orange"    |
-| BorderRadius     | Border radius for the export icon                                                                             |        0         |               |
-| BorderWidth      | Border width for the export icon                                                                              |        0         |               |
-| Column           | Column Name                                                                                                   |        ""        |    "Value"    |
-| ContentLanguage  | ISO3166 lanuage code of the content                                                                           |        ""        |    "en-us     |
-| DisplayMode      | Configures whether the control allows user input (Edit), only displays data (View) or is disabled (Disabled). | DisplayMode.Edit |
-| FileName         | Filename to export                                                                                            |        ""        | "Export.xlsx" |
-
-Thanks to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the code that this custom control originated from. I built on top of this code to add the custom SelectedColumns functionality to allow exporting a columns dynamically selected by the end-user.
+Thanks to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. While it helped to solve a primary business requirement within our project, it did not include support for the dynamic section of individual columns to export to the Excel _.xlsx_ spreadsheet.
