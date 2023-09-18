@@ -12,7 +12,7 @@
 - Column ordering based on selected fields in fields property
 - Loading spinner indicator
 - Customizable export activation button
-- Customizable columns from the selected DataSet, filtered down to only the selected columns the user chooses to export.
+- Customizable columns from the selected dataset, filtered down to only the selected columns the application user chooses to export.
 
 # How to import the DatasetToExcel component into your tenant
 
@@ -45,17 +45,16 @@
 6. Insert your Power Apps collection containing the data to export into _Items_ property.
 7. ?? Create another collection that contains at least one Column (ie: "ColName") with the rows being the column names of the DataSet you wish to export.
 8. ?? _Needs Update/Tested: Map ColName to the Column Property._
-9. In the Power Apps control properties pane, select **_Fields_**, and select each of your dataset's columns that you would like to make available in your Power App for use in both display and exporting.
+9. In the Power Apps control properties pane, select **_Fields_**, and then select each column from your dataset that you would like to make available in your Power App for the purpose of exporting.
 10. Click on the DatasetToExcel control to while your Power App is in Preview or Play mode to activate the data export action.
 
 After clicking to activate the control, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from the defined collection, including only the columns identified in the **SelectedColumns_Item** property of the control.
 
 ## Component Customization
 
-> <u>Optional and required control customization options</u>
->
-> Update any of the _DatasetToExcel_ control properties, as shown in the **_Customizable Control Properties_** table below to meet your desired customization and configuration needs.
-> You can change the appearance and functionality of the control by modifying any of the control's supported properties.
+Update any of the _DatasetToExcel_ control properties, as shown in the **_Customizable Control Properties_** table below to meet your desired customization and configuration needs.
+
+You can change the appearance and functionality of the control by modifying any of the control's supported properties.
 
 ### Customizable Control Properties
 
