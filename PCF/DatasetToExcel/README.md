@@ -58,26 +58,26 @@ You can change the appearance and functionality of the control by modifying any 
 
 ### Customizable Control Properties
 
-> | Property              | Description                                                                         | Default |    Example    |
-> | --------------------- | ----------------------------------------------------------------------------------- | :-----: | :-----------: |
-> | BGColor               | Background color of the export icon                                                 | "white" |     "red"     |
-> | BorderColor           | Border color of the export icon                                                     | "black" |    "green"    |
-> | BorderHoverColor      | Border hover color of the export icon                                               | "black" |   "orange"    |
-> | BorderRadius          | Border radius of the export icon                                                    |    0    |               |
-> | BorderWidth           | Border width of the export icon                                                     |    0    |               |
-> | Column                | Column names to display in the exported file                                        |   ""    |    "Value"    |
-> | ContentLanguage       | ISO 3166 lanuage code of the content being exported                                 |   ""    |    "en-us"    |
-> | FileName              | Filename of the .xlsx to export                                                     |   ""    | "Export.xlsx" |
-> | HoverBGColor          | Hover Background Color of the export icon                                           |         |               |
-> | HoverTextColor        | Hover Text Color                                                                    |         |               |
-> | IconColor             | Icon Color                                                                          |         |               |
-> | IconName              | Icon Name                                                                           |         |               |
-> | InputEvent            |                                                                                     |         |               |
-> | Items                 | Collection to use for the export (Table/Collection)                                 |         |    colData    |
-> | Loading               | Animated loading spinner                                                            |  false  |     true      |
-> | OnChange              | Actions to perform upon the OnChange event of the control                           |   N/A   |               |
-> | OnSelect              | Actions to perform upon the OnSelect event of the control                           |   N/A   |               |
-> | SelectedColumns_Items | The user selected columns to include in the exported spreadsheet (Table/Collection) |   N/A   |               |
+| Property              | Description                                                                         | Default |    Example    |
+| --------------------- | ----------------------------------------------------------------------------------- | :-----: | :-----------: |
+| BGColor               | Background color of the export icon                                                 | "white" |     "red"     |
+| BorderColor           | Border color of the export icon                                                     | "black" |    "green"    |
+| BorderHoverColor      | Border hover color of the export icon                                               | "black" |   "orange"    |
+| BorderRadius          | Border radius of the export icon                                                    |    0    |               |
+| BorderWidth           | Border width of the export icon                                                     |    0    |               |
+| Column                | Column names to display in the exported file                                        |   ""    |    "Value"    |
+| ContentLanguage       | ISO 3166 lanuage code of the content being exported                                 |   ""    |    "en-us"    |
+| FileName              | Filename of the .xlsx to export                                                     |   ""    | "Export.xlsx" |
+| HoverBGColor          | Hover Background Color of the export icon                                           |         |               |
+| HoverTextColor        | Hover Text Color                                                                    |         |               |
+| IconColor             | Icon Color                                                                          |         |               |
+| IconName              | Icon Name                                                                           |         |               |
+| InputEvent            |                                                                                     |         |               |
+| Items                 | Collection to use for the export (Table/Collection)                                 |         |    colData    |
+| Loading               | Animated loading spinner                                                            |  false  |     true      |
+| OnChange              | Actions to perform upon the OnChange event of the control                           |   N/A   |               |
+| OnSelect              | Actions to perform upon the OnSelect event of the control                           |   N/A   |               |
+| SelectedColumns_Items | The user selected columns to include in the exported spreadsheet (Table/Collection) |   N/A   |               |
 
 > <u>Note:</u>
 >
