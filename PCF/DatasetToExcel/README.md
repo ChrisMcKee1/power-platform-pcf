@@ -4,7 +4,7 @@
 
 ## Overview
 
-DatasetToExcel is a Power Apps PCF code component that can be utilized in Power Apps to export any dataset from a Power App to a Microsoft Excel .xlsx file.
+**_DatasetToExcel_** is a FluentUI based Power Apps Component Framework (PCF) control which can be utilized in a Microsoft Power Apps application to allow the exporting of a configurable number of columns from an existing dataset to a Microsoft Excel .xlsx file. It is easy to use and also includes a customizable button based on your desired theme and style.
 
 ## Features
 
@@ -14,16 +14,14 @@ DatasetToExcel is a Power Apps PCF code component that can be utilized in Power 
 - Customizable export activation button
 - Customizable columns from the selected DataSet, filtered down to only the selected columns the user chooses to export.
 
-The **_Dataset to Excel_** custom control is a Power Apps Component Framework (PCF) component enabling the export of any dataset within a Microsoft Power Apps application to an Excel \*.xlsx file. It is as simple as working with Power Apps out-of-box gallery control. It includes a customizable export button based on your desired theme and style.
+# How to import the DatasetToExcel component into your tenant
 
-## How to import the DatasetToExcel component into your tenant
+## Pre-requisites
 
-### Pre-requisites
-
-1. Before attempting to import this component, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the specific Power Platform environment that you will import the DatasetToExcel control into.
+1. Before attempting to import this component into an environment, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the specific Power Platform environment that you will import the DatasetToExcel control into.
 2. Download the latest released version of the [DatasetToExcel Solution from Github](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip) and save it locally.
 
-### DatasetToExcel Component Installation
+## Installation
 
 1. Navigate to [https://make.powerapps.com](https://make.powerapps.com) and log in with your Microsoft work or school account.
 2. Select the appropriate Environment that you wish to utilize this component in.
@@ -31,33 +29,35 @@ The **_Dataset to Excel_** custom control is a Power Apps Component Framework (P
 4. Select **_Import solution_**.
 5. Select the compressed _ExcelExporter.Zip_ file which was downloaded during the pre-requisite steps.
 
-> Once the _DatasetToExcel_ solution has been successfully imported, you can import it into a new or existing Power App by performing the following steps:
+## Usage
 
-1.  Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
-2.  Select the **_Insert_** menu from the left or top bar.
-3.  In the bottom of the side bar, select **_Get more components_**.
-    > <u>Note</u>
-    >
-    > If the **_Get more components_** option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
-4.  A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
-5.  Select the _DatasetToExcel_ component to import it into your Power App.
+> Once the _DatasetToExcel_ solution has been successfully imported into the desired environment, you can import the component into a new or existing Power App by performing the following steps -
 
-### Usage
+1. Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
+2. Select the **_Insert_** menu from the left or top bar.
+3. In the bottom of the side bar, select **_Get more components_**.
+   > <u>Note</u>
+   >
+   > If the **_Get more components_** option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
+4. A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
+5. Select the _DatasetToExcel_ component to import it into your Power App.
 
-1. Insert your Power Apps collection containing the data to export into _Items_ property.
-2. ?? Create another collection that contains at least one Column (ie: "ColName") with the rows being the column names of the DataSet you wish to export.
-3. ?? _Needs Update/Tested: Map ColName to the Column Property._
-4. In the Power Apps control properties pane, select **_Fields_**, and select each of your dataset's columns that you would like to make available in your Power App for use in both display and exporting.
-5. Click on the DatasetToExcel control to while your Power App is in Play mode to activate the data export action.
+6. Insert your Power Apps collection containing the data to export into _Items_ property.
+7. ?? Create another collection that contains at least one Column (ie: "ColName") with the rows being the column names of the DataSet you wish to export.
+8. ?? _Needs Update/Tested: Map ColName to the Column Property._
+9. In the Power Apps control properties pane, select **_Fields_**, and select each of your dataset's columns that you would like to make available in your Power App for use in both display and exporting.
+10. Click on the DatasetToExcel control to while your Power App is in Preview or Play mode to activate the data export action.
 
 After clicking to activate the control, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from the defined collection, including only the columns identified in the **SelectedColumns_Item** property of the control.
 
-> <u>Optional control customization options</u>
+## Component Customization
+
+> <u>Optional and required control customization options</u>
 >
 > Update any of the _DatasetToExcel_ control properties, as shown in the **_Customizable Control Properties_** table below to meet your desired customization and configuration needs.
 > You can change the appearance and functionality of the control by modifying any of the control's supported properties.
 
-## Customizable Control Properties
+### Customizable Control Properties
 
 > | Property              | Description                                                                         | Default |    Example    |
 > | --------------------- | ----------------------------------------------------------------------------------- | :-----: | :-----------: |
