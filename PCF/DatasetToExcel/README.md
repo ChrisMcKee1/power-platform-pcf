@@ -8,8 +8,8 @@
 
 ## Features
 
-- Column names based on selected fields in fields property
-- Column ordering based on selected fields in fields property
+- Column names based on selected fields in the native Fields property
+- Column ordering based on selected fields in the native Fields property
 - Loading spinner indicator
 - Customizable export activation button
 - Customizable columns from the selected dataset, filtered down to only the selected columns the application user chooses to export.
@@ -40,11 +40,17 @@
    >
    > If the **_Get more components_** option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
 4. A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
-5. Select the _DatasetToExcel_ component to import it into your Power App.
+5. Select the DatasetToExcel component to import it into your Power App.
 
 6. Insert your Power Apps collection containing the data to export into _Items_ property.
-7. ?? Create another collection that contains at least one Column (ie: "ColName") with the rows being the column names of the DataSet you wish to export.
-8. ?? _Needs Update/Tested: Map ColName to the Column Property._
+7. Create another collection ("colSelectedColumns" for example) that contains at least one column with the rows being the column names of the DataSet you wish to export.
+   > Example: Assume you have the following dataset
+   > | columnA | columnB |
+   > |-------------|------------|
+   > | datainrow1A | datainrow1B|
+   >
+   > ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])
+8. Set the SelectedColumns_Items property to the collection that was created in step 7.
 9. In the Power Apps control properties pane, select **_Fields_**, and then select each column from your dataset that you would like to make available in your Power App for the purpose of exporting.
 10. Click on the DatasetToExcel control to while your Power App is in Preview or Play mode to activate the data export action.
 
@@ -52,35 +58,34 @@ After clicking to activate the control, you will be prompted to save the exporte
 
 ## Component Customization
 
-Update any of the _DatasetToExcel_ control properties, as shown in the **_Customizable Control Properties_** table below to meet your desired customization and configuration needs.
-
-You can change the appearance and functionality of the control by modifying any of the control's supported properties.
+Update any of the control's properties, as shown in the **_Customizable Control Properties_** table below as required based on your desired appearance and functionality.
 
 ### Customizable Control Properties
 
-| Property              | Description                                                                         | Default |    Example    |
-| --------------------- | ----------------------------------------------------------------------------------- | :-----: | :-----------: |
-| BGColor               | Background color of the export icon                                                 | "white" |     "red"     |
-| BorderColor           | Border color of the export icon                                                     | "black" |    "green"    |
-| BorderHoverColor      | Border hover color of the export icon                                               | "black" |   "orange"    |
-| BorderRadius          | Border radius of the export icon                                                    |    0    |               |
-| BorderWidth           | Border width of the export icon                                                     |    0    |               |
-| Column                | Column names to display in the exported file                                        |   ""    |    "Value"    |
-| ContentLanguage       | ISO 3166 lanuage code of the content being exported                                 |   ""    |    "en-us"    |
-| FileName              | Filename of the .xlsx to export                                                     |   ""    | "Export.xlsx" |
-| HoverBGColor          | Hover Background Color of the export icon                                           |         |               |
-| HoverTextColor        | Hover Text Color                                                                    |         |               |
-| IconColor             | Icon Color                                                                          |         |               |
-| IconName              | Icon Name                                                                           |         |               |
-| InputEvent            |                                                                                     |         |               |
-| Items                 | Collection to use for the export (Table/Collection)                                 |         |    colData    |
-| Loading               | Animated loading spinner                                                            |  false  |     true      |
-| OnChange              | Actions to perform upon the OnChange event of the control                           |   N/A   |               |
-| OnSelect              | Actions to perform upon the OnSelect event of the control                           |   N/A   |               |
-| SelectedColumns_Items | The user selected columns to include in the exported spreadsheet (Table/Collection) |   N/A   |               |
+| Property              | Description                                                           | Default |      Example       |
+| --------------------- | --------------------------------------------------------------------- | :-----: | :----------------: |
+| BGColor               | Background color of the export icon                                   | "white" |       "red"        |
+| BorderColor           | Border color of the export icon                                       | "black" |      "green"       |
+| BorderHoverColor      | Border hover color of the export icon                                 | "black" |      "orange"      |
+| BorderRadius          | Border radius of the export icon                                      |    0    |                    |
+| BorderWidth           | Border width of the export icon                                       |    0    |                    |
+| ColDisplayName        | Column display names to display in the exported file                  |   ""    |  "ColDisplayName"  |
+| ColName               | Columns from the dataset to display in the exported file              |   ""    |     "ColName"      |
+| ContentLanguage       | ISO 3166 lanuage code of the content being exported                   |   ""    |      "en-us"       |
+| FileName              | Filename of the .xlsx to export                                       |   ""    |   "Export.xlsx"    |
+| HoverBGColor          | Hover Background Color of the export icon                             |         |                    |
+| HoverTextColor        | Hover Text Color                                                      |         |                    |
+| IconColor             | Icon Color                                                            |         |                    |
+| IconName              | Icon Name                                                             |         |                    |
+| InputEvent            |                                                                       |         |                    |
+| Items                 | Collection to use for the export (Table/Collection)                   |         |      colData       |
+| Loading               | Animated loading spinner                                              |  false  |        true        |
+| OnChange              | Actions to perform upon the OnChange event of the control             |   N/A   |                    |
+| OnSelect              | Actions to perform upon the OnSelect event of the control             |   N/A   |                    |
+| SelectedColumns_Items | A collection of columns to include in the output to the exported file |   N/A   | colSelectedColumns |
 
 > <u>Note:</u>
 >
-> Additional common out-of-box customization options such as Height, Width, Visible, DisplayMode, X, and Y are also supported.
+> Additional standard out-of-box customization options such as Height, Width, Visible, DisplayMode, X, and Y are also supported.
 
-Thanks to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement that was needed. However, it did not include a required feature to allow the dynamic selection of individual columns based on the original dataset to export to the Excel _.xlsx_ spreadsheet. This is where the need for the creation of the _DatasetToExcel_ component was born.
+A huge thanks goes out to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement. An additional requirement needed was support for the dynamic selection of columns from the dataset to output based on the original dataset to export to the Excel spreadsheet. This is where the need for the creation of the DatasetToExcel component was born.
