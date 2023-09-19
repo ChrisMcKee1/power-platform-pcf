@@ -44,10 +44,16 @@
 
 6. Insert your Power Apps collection containing the data to export into _Items_ property.
 7. Create another collection ("colSelectedColumns" for example) that contains at least one column with the rows being the column names of the DataSet you wish to export.
-   > Example: Assume you have the following dataset
+   > Example:
+   >
+   > Assume you have the following dataset:
    > | columnA | columnB |
    > |-------------|------------|
    > | datainrow1A | datainrow1B|
+   > | datainrow2A | datainrow2B|
+   >
+   > Assume you want the display name of columnA to be "Column A" and the displayname of columnB to be "Column B"
+   > Your collection to map the column names to the column display names would be created as follows:
    >
    > ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])
 8. Set the SelectedColumns_Items property to the collection that was created in step 7.
