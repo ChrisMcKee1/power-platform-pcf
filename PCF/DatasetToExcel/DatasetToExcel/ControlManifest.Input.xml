@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="McKeeCorp" constructor="ExportDatasetToExcel" version="1.0.17" display-name-key="ExportDatasetToExcel" description-key="Export Dataset to excel file" control-type="virtual">
+  <control namespace="McKeeCorp" constructor="ExportDatasetToExcel" version="1.0.24"
+    display-name-key="ExportDatasetToExcel" description-key="Export Dataset to excel file"
+    control-type="virtual">
     <external-service-usage enabled="false">
     </external-service-usage>
     <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
@@ -12,26 +14,44 @@
       description-key="Property_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
       -->
     </data-set>
-    <data-set name="SelectedColumns" display-name-key="SelectedColumns">
-      <property-set name="Column" display-name-key="Column" description-key="Column" of-type="SingleLine.Text" usage="bound" required="true" />
+    <data-set name="SelectedColumns" display-name-key="Selected Columns">
+      <property-set name="ColName" display-name-key="ColName" description-key="Column Name"
+        of-type="SingleLine.Text" usage="bound" required="false" />
+      <property-set name="ColDisplayName" display-name-key="Column Display Name"
+        description-key="Column Name" of-type="SingleLine.Text" usage="bound" required="false" />
     </data-set>
     <!-- Button UI props -->
-    <property name="Text" display-name-key="Text" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="IconName" display-name-key="Icon Name" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="InputEvent" display-name-key="Input Event" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="Text" display-name-key="Text" of-type="SingleLine.Text" usage="input"
+      required="false" />
+    <property name="IconName" display-name-key="Icon Name" of-type="SingleLine.Text" usage="input"
+      required="false" />
+    <property name="InputEvent" display-name-key="Input Event" of-type="SingleLine.Text"
+      usage="input" required="false" />
     <!-- General props -->
-    <property name="FileName" display-name-key="File Name" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="Loading" display-name-key="Loading" description-key="Boolean that can be set to set the component in loading state" of-type="TwoOptions" usage="input" required="false" default-value="false" />
+    <property name="FileName" display-name-key="File Name" of-type="SingleLine.Text" usage="input"
+      required="false" />
+    <property name="Loading" display-name-key="Loading"
+      description-key="Boolean that can be set to set the component in loading state"
+      of-type="TwoOptions" usage="input" required="false" default-value="false" />
     <!-- Styling props -->
-    <property name="TextColor" display-name-key="Text Color" of-type="SingleLine.Text" usage="input" required="false" default-value="black" />
-    <property name="BGColor" display-name-key="Background Color" of-type="SingleLine.Text" usage="input" required="false" default-value="white" />
-    <property name="IconColor" display-name-key="Icon Color" of-type="SingleLine.Text" usage="input" required="false" default-value="black" />
-    <property name="HoverTextColor" display-name-key="Hover Text Color" of-type="SingleLine.Text" usage="input" required="false" default-value="" />
-    <property name="HoverBGColor" display-name-key="Hover Background Color" of-type="SingleLine.Text" usage="input" required="false" default-value="" />
-    <property name="BorderColor" display-name-key="Border Color" of-type="SingleLine.Text" usage="input" required="false" default-value="" />
-    <property name="BorderHoverColor" display-name-key="Border Hover Color" of-type="SingleLine.Text" usage="input" required="false" default-value="" />
-    <property name="BorderWidth" display-name-key="Border Width" of-type="Whole.None" usage="input" required="false" default-value="" />
-    <property name="BorderRadius" display-name-key="Border Radius" of-type="Whole.None" usage="input" required="false" default-value="" />
+    <property name="TextColor" display-name-key="Text Color" of-type="SingleLine.Text" usage="input"
+      required="false" default-value="black" />
+    <property name="BGColor" display-name-key="Background Color" of-type="SingleLine.Text"
+      usage="input" required="false" default-value="white" />
+    <property name="IconColor" display-name-key="Icon Color" of-type="SingleLine.Text" usage="input"
+      required="false" default-value="black" />
+    <property name="HoverTextColor" display-name-key="Hover Text Color" of-type="SingleLine.Text"
+      usage="input" required="false" default-value="" />
+    <property name="HoverBGColor" display-name-key="Hover Background Color"
+      of-type="SingleLine.Text" usage="input" required="false" default-value="" />
+    <property name="BorderColor" display-name-key="Border Color" of-type="SingleLine.Text"
+      usage="input" required="false" default-value="" />
+    <property name="BorderHoverColor" display-name-key="Border Hover Color"
+      of-type="SingleLine.Text" usage="input" required="false" default-value="" />
+    <property name="BorderWidth" display-name-key="Border Width" of-type="Whole.None" usage="input"
+      required="false" default-value="" />
+    <property name="BorderRadius" display-name-key="Border Radius" of-type="Whole.None"
+      usage="input" required="false" default-value="" />
     <!-- Styling props -->
     <resources>
       <code path="index.ts" order="1" />

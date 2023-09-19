@@ -28,6 +28,10 @@ export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IIn
         context.parameters.DatasetToExport.paging.setPageSize(99999);
     }
 
+    private handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        this.notifyOutputChanged();
+    }
+
     /**
      * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
      * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
@@ -38,7 +42,7 @@ export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IIn
             TextColor, BGColor, IconColor, HoverTextColor, HoverBGColor, BorderColor,
             BorderHoverColor, BorderWidth, BorderRadius, Text, IconName, FileName, Loading
         } = context.parameters;
-    
+
         const stylesProps: IMakerStyleProps = {
             textColor: TextColor.raw || "black",
             bgColor: BGColor.raw || "rgba(0,0,0,0)",
@@ -52,15 +56,15 @@ export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IIn
             buttonWidth: context.mode.allocatedWidth,
             buttonHeight: context.mode.allocatedHeight
         };
-    
+
         const buttonUiProps: IMakerButtonProps = {
             buttonText: Text.raw || "",
             iconName: IconName.raw || "ExcelDocument"
         }
-    
+
         const dataSet = context.parameters.DatasetToExport;
         const selectedColumns = context.parameters.SelectedColumns;
-    
+
         const props: IDatasetToExcelProps = {
             makerStyleProps: stylesProps,
             buttonProps: buttonUiProps,
@@ -68,14 +72,14 @@ export class ExportDatasetToExcel implements ComponentFramework.ReactControl<IIn
             selectedColumns: selectedColumns,
             fileName: FileName.raw || `generated_file_${Date.now()}`,
             itemsLoading: dataSet.loading,
-            isLoading: Loading.raw // this can be set by the app maker
+            isLoading: Loading.raw, // this can be set by the app maker
+            onButtonClick: this.handleButtonClick
         };
-    
+
         return React.createElement(
             ComponentRenderer, props
         );
     }
-    
 
     /**
      * It is called by the framework prior to a control receiving new data.
