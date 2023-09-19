@@ -52,7 +52,8 @@
    > | datainrow1A | datainrow1B|
    > | datainrow2A | datainrow2B|
    >
-   > Assume you want the display name of columnA to be "Column A" and the displayname of columnB to be "Column B"
+   > Assume you want the display name of columnA to be "Column A" and the display name of columnB to be "Column B".
+   >
    > Your collection to map the column names to the column display names would be created as follows:
    >
    > ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])
