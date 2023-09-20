@@ -39,12 +39,11 @@
    > <u>Note</u>
    >
    > If the **_Get more components_** option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
-4. A dialog will appear on the right of the screen with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
+4. A dialog will appear in a pane on the right with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
 5. Select the DatasetToExcel component to import it into your Power App.
-
-6. Insert your Power Apps collection containing the data to export into _Items_ property.
-7. Create another collection ("colSelectedColumns" for example) that contains at least one column with the rows being the column names of the DataSet you wish to export.
-   > Example:
+6. Insert the name of your Power Apps collection containing the data to export into the control's _Items_ property.
+7. Create another collection (_colSelectedColumns_ for example) that contains the column names and column display names for the dataset you wish to export.
+   > **Example:**
    >
    > Assume you have the following dataset:
    > | columnA | columnB |
@@ -52,20 +51,21 @@
    > | datainrow1A | datainrow1B|
    > | datainrow2A | datainrow2B|
    >
-   > Assume you want the display name of columnA to be "Column A" and the display name of columnB to be "Column B".
+   > Assume you want the display name of columnA to be "Column A" and the display name of columnB to be "Column B" in the exported file.
    >
-   > Your collection to map the column names to the column display names would be created as follows:
+   > The collection to create to map each column name to the appropriate column display name would be created as follows:
    >
    > ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])
-8. Set the SelectedColumns_Items property to the collection that was created in step 7.
-9. In the Power Apps control properties pane, select **_Fields_**, and then select each column from your dataset that you would like to make available in your Power App for the purpose of exporting.
+8. Set the _SelectedColumns_Items_ property to the collection that was created in step 7.
+9. In the Power Apps control properties pane, select **_Fields_**, and then select all of the columns in your dataset that you would like to make available for the purpose of exporting.
 10. Click on the DatasetToExcel control to while your Power App is in Preview or Play mode to activate the data export action.
 
-After clicking to activate the control, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from the defined collection, including only the columns identified in the **SelectedColumns_Item** property of the control.
+After clicking on the control to activate it, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from your collection defined in the **Items** property, and the output will include only the columns identified in the **SelectedColumns_Item** property.
 
 ## Component Customization
 
-Update any of the control's properties, as shown in the **_Customizable Control Properties_** table below as required based on your desired appearance and functionality.
+You can update any of the control's properties, listed in the **_Customizable Control Properties_** table below, to meet your requirements.  
+The minimum requirement is to update the _Items_, _SelectedColumns_Items_, _ColName_, and _ColDisplayName_ properties. The remaining properties may optionally be modified as needed based on the desired behavior and appearance of the control.
 
 ### Customizable Control Properties
 
