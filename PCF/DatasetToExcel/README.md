@@ -1,10 +1,8 @@
 # Export Dataset to Excel PCF component ("DatasetToExcel")
 
----
-
 ## Overview
 
-**_DatasetToExcel_** is a FluentUI based Power Apps Component Framework (PCF) control which can be utilized in a Microsoft Power Apps application to allow the exporting of a configurable number of columns from an existing dataset to a Microsoft Excel .xlsx file. It is easy to use and also includes a customizable button based on your desired theme and style.
+**_DatasetToExcel_** is a FluentUI based Power Apps Component Framework (PCF) control which can be utilized in a Microsoft Power Apps application to allow the dynamic exporting of any number of columns from an existing dataset to a Microsoft Excel .xlsx file. It is easy to use and also includes a button that is configurable based on your desired theme and style.
 
 ## Features
 
@@ -13,6 +11,7 @@
 - Loading spinner indicator
 - Customizable export activation button
 - Customizable columns from the selected dataset, filtered down to only the selected columns the application user chooses to export.
+  <br><br>
 
 # How to import the DatasetToExcel component into your tenant
 
@@ -25,24 +24,27 @@
 
 1. Navigate to [https://make.powerapps.com](https://make.powerapps.com) and log in with your Microsoft work or school account.
 2. Select the appropriate Environment that you wish to utilize this component in.
-3. Select **_Solutions_**.
+3. Select **_Solutions_** from the left navigation pane.
 4. Select **_Import solution_**.
-5. Select the compressed _ExcelExporter.Zip_ file which was downloaded during the pre-requisite steps.
+5. Select the compressed _ExcelExporter.Zip_ file downloaded as part of the pre-requisites steps above.
 
 ## Usage
 
-> Once the _DatasetToExcel_ solution has been successfully imported into the desired environment, you can import the component into a new or existing Power App by performing the following steps -
+After the _DatasetToExcel_ solution has been successfully imported into the desired environment, you can import the component into a new or existing Power App created in the same environment by performing the following steps:
 
-1. Create a new, or open an existing Power App which you would like to utilize the DatasetToExcel component in.
-2. Select the **_Insert_** menu from the left or top bar.
+1. Open an existing, or create a new Power App in the same environment that the _DatasetToExcel_ solution was imported into.
+2. Select the **_Insert_** menu from the left Power Apps bar.
 3. In the bottom of the side bar, select **_Get more components_**.
+   <br><br>
    > <u>Note</u>
    >
-   > If the **_Get more components_** option is not visible, select **_Components_** while in _Tree View_, select the ellipsis (...), and finally select **_Import components_**.
+   > The **_Get more components_** will not be visible if you used the **_Insert_** menu from the top Power Apps menu bar. Instead, use the **+ Insert** below the _Tree View_ in the left pane.
+   > <br><br>
 4. A dialog will appear in a pane on the right with two tabs, **_canvas_** and **_code_**. Select the **_code_** tab.
-5. Select the DatasetToExcel component to import it into your Power App.
-6. Insert the name of your Power Apps collection containing the data to export into the control's _Items_ property.
+5. Select the **_DatasetToExcel_** component to import it into your Power App.
+6. Insert the name of your Power Apps collection containing the dataset to export into the control's _Items_ property.
 7. Create another collection (_colSelectedColumns_ for example) that contains the column names and column display names for the dataset you wish to export.
+   <br><br>
    > **Example:**
    >
    > Assume you have the following dataset:
@@ -51,16 +53,16 @@
    > | datainrow1A | datainrow1B|
    > | datainrow2A | datainrow2B|
    >
-   > Assume you want the display name of columnA to be "Column A" and the display name of columnB to be "Column B" in the exported file.
+   > Assume you want the display name of the data in columnA to be "Column A" and the display name of the data in columnB to be "Column B" in the export.
    >
-   > The collection to create to map each column name to the appropriate column display name would be created as follows:
+   > The collection to create to map each column name to the appropriate column display name would be created for this example as follows:
    >
-   > ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])
+   > **ClearCollect(colSelectedColumns,[{ColName: "columnA", ColDisplayName: "Column A"},{ColName: "columnB", ColDisplayName: "Column B"}])** > <br><br>
 8. Set the _SelectedColumns_Items_ property to the collection that was created in step 7.
-9. In the Power Apps control properties pane, select **_Fields_**, and then select all of the columns in your dataset that you would like to make available for the purpose of exporting.
-10. Click on the DatasetToExcel control to while your Power App is in Preview or Play mode to activate the data export action.
+9. In the Power Apps control properties pane, select **_Fields_**, and then select all columns in your dataset that you would like to make available for the purpose of exporting.
+10. Click on the **_DatasetToExcel_** control to activate it while your Power App is in Preview or Play mode to activate the control's data export action.
 
-After clicking on the control to activate it, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from your collection defined in the **Items** property, and the output will include only the columns identified in the **SelectedColumns_Item** property.
+After clicking on the control to activate it, you will be prompted to save the exported Excel .xlsx spreadsheet containing the data exported from your collection defined in the **_Items_** property, and the output will include only the columns identified in the **SelectedColumns_Item** property.
 
 ## Component Customization
 
@@ -91,8 +93,10 @@ The minimum requirement is to update the _Items_, _SelectedColumns_Items_, _ColN
 | OnSelect              | Actions to perform upon the OnSelect event of the control             |   N/A   |                    |
 | SelectedColumns_Items | A collection of columns to include in the output to the exported file |   N/A   | colSelectedColumns |
 
+<br><br>
+
 > <u>Note:</u>
 >
 > Additional standard out-of-box customization options such as Height, Width, Visible, DisplayMode, X, and Y are also supported.
-
-A huge thanks goes out to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement. An additional requirement needed was support for the dynamic selection of columns from the dataset to output based on the original dataset to export to the Excel spreadsheet. This is where the need for the creation of the DatasetToExcel component was born.
+> <br><br>
+> A huge thanks goes out to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement. An additional requirement needed was support for the dynamic selection of columns from the dataset to output based on the original dataset to export to the Excel spreadsheet. This is where the need for the creation of the DatasetToExcel component was born.
