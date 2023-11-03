@@ -115,18 +115,36 @@ The component's return statement renders a `DefaultButton` from Fluent UI. If th
 The `getColumnNames` function is used to get the column names from the dataset. The `prepareData` function is used to prepare the data for export. It iterates over the dataset and creates an array of records, each record being an object where the keys are column names and the values are the corresponding values from the dataset.
 
 The `getStyle` function is used to generate the styles for the button based on the `IMakerStyleProps` passed in. It returns an `IButtonStyles` object that is used by Fluent UI's `DefaultButton` component.
-<br><br>
-The selected TypeScript code is a React component that exports a button for exporting data to an Excel file. It uses the Fluent UI React library for UI components and the XLSX library for handling Excel file operations.
 
-The code starts by importing necessary modules and defining several TypeScript interfaces. These interfaces (`IMakerStyleProps`, `IMakerButtonProps`, `IDatasetToExcelProps`) define the shape of the props that the main component, `ComponentRenderer`, expects.
+## Index.ts
 
-The `ComponentRenderer` is a functional component that takes in `IDatasetToExcelProps` as props. It destructures these props and uses them throughout the component. The `handleClick` function is defined within this component. This function is triggered when the button is clicked. It prepares the data for export, converts it into an Excel worksheet, and then writes it to an Excel file.
+**Index.ts** is a TypeScript file that exports a single function named `DatasetToExcel`. This function takes in a single parameter of type `DataSetInterfaces.EntityRecord[]` and returns a `Promise` that resolves to a `Blob` object. The `Blob` object contains the data in the form of an Excel file.
 
-The component's return statement renders a `DefaultButton` from Fluent UI. If the data is still loading (`itemsLoading` or `isLoading` is true), it renders a button with a spinner icon and a "Loading data" label. If the data has finished loading, it renders a button with an icon and text specified by `buttonProps`, and this button will trigger the `handleClick` function when clicked.
+The code uses the `xlsx` library to create the Excel file. The `xlsx` library is a commonly used for working with Excel files in JavaScript and TypeScript. The `DatasetToExcel` function first converts the `DataSetInterfaces.EntityRecord[]` parameter to a `SheetJS.Sheet` object using the `sheet_from_array_of_arrays` function. It then creates a `Workbook` object and adds the `Sheet` object to it. Finally, it writes the `Workbook` object to a `Blob` object using the `write` function.
 
-The `getColumnNames` function is used to get the column names from the dataset. The `prepareData` function is used to prepare the data for export. It iterates over the dataset and creates an array of records, each record being an object where the keys are column names and the values are the corresponding values from the dataset.
+```typescript
+import { DatasetToExcel } from "./PCF/DatasetToExcel/DatasetToExcel";
+import * as DataSetInterfaces from "dataverse-ify";
 
-The `getStyle` function is used to generate the styles for the button based on the `IMakerStyleProps` passed in. It returns an `IButtonStyles` object that is used by Fluent UI's `DefaultButton` component.
-<br><br>
+const data: DataSetInterfaces.EntityRecord[] = [
+  // Your data here
+];
+
+DatasetToExcel(data).then((blob: Blob) => {
+  // Do something with the blob
+});
+```
+
+I hope this helps!
+
+Source: Conversation with Bing, 11/3/2023
+(1) GitHub - ChrisMcKee1/power-platform-pcf: Custom PCF components. https://github.com/ChrisMcKee1/power-platform-pcf.
+(2) Custom PCF Controls for PowerApps - GitHub. https://github.com/ChrisMcKee1/power-platform-pcf/blob/main/README.md.
+(3) ChrisMcKee1 (Chris McKee) · GitHub. https://github.com/ChrisMcKee1.
+(4) undefined. https://github.com/ChrisMcKee1/power-platform-pcf.git.
+(5) undefined. https://avatars.githubusercontent.com/u/25754153?v=4.
+(6) undefined. https://github.com/ChrisMcKee1/power-platform-pcf/blob/main/README.md?raw=true.
+(7) undefined. https://desktop.github.com.
+(8) undefined. https://docs.github.com/articles/about-issue-and-pull-request-templates.
 
 > A huge thanks goes out to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement. An additional requirement needed was support for the dynamic selection of columns from the dataset to output based on the original dataset to export to the Excel spreadsheet. This is where the need for the creation of the DatasetToExcel component was born.
