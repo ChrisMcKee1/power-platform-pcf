@@ -2,13 +2,13 @@
 
 ## Overview
 
-**_DatasetToExcel_** is a FluentUI based Power Apps Component Framework (PCF) control which can be utilized in a Microsoft Power Apps application to allow the dynamic exporting of any number of columns from an existing dataset to a Microsoft Excel .xlsx file. It is easy to use and also includes a button that is configurable based on your desired theme and style.
+**_DatasetToExcel_** is a FluentUI based Power Apps Component Framework (PCF) control which can be utilized in a Microsoft Power Apps application to allow the dynamic exporting of any number of columns from an existing dataset to a Microsoft Excel .xlsx file. It is easy to use and also includes a customizable export button to match your desired theme and style.
 
 ## Features
 
-- Column names based on selected fields in the native Fields property
-- Column ordering based on selected fields in the native Fields property
-- Loading spinner indicator
+- Column names based on selected fields in the native _Fields_ property
+- Column ordering based on selected fields in the native _Fields_ property
+- Optional loading spinner indicator
 - Customizable export activation button
 - Customizable columns from the selected dataset, filtered down to only the selected columns the application user chooses to export.
   <br><br>
@@ -18,12 +18,12 @@
 ## Pre-requisites
 
 1. Before attempting to import this component into an environment, you will need to ensure the [Power Apps Code Component Framework](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps) is enabled in the specific Power Platform environment that you will import the DatasetToExcel control into.
-2. Download the latest released version of the [DatasetToExcel Solution from Github](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip) and save it locally.
+2. Download the latest released version of the [DatasetToExcel Solution](https://github.com/ChrisMcKee1/power-platform-pcf/raw/main/PCF/DatasetToExcel/ExcelExporter.zip) and save it locally.
 
 ## Installation
 
 1. Navigate to [https://make.powerapps.com](https://make.powerapps.com) and log in with your Microsoft work or school account.
-2. Select the appropriate Environment that you wish to utilize this component in.
+2. Select the appropriate Power Platform Environment that you will utilize this component in.
 3. Select **_Solutions_** from the left navigation pane.
 4. Select **_Import solution_**.
 5. Select the compressed _ExcelExporter.Zip_ file downloaded as part of the pre-requisites steps above.
@@ -99,4 +99,34 @@ The minimum requirement is to update the _Items_, _SelectedColumns_Items_, _ColN
 >
 > Additional standard out-of-box customization options such as Height, Width, Visible, DisplayMode, X, and Y are also supported.
 > <br><br>
+
+# Code explanations
+
+## ComponentRenderer.tsx
+
+**ComponentRenderer.tsx** is a React component that exports a button for exporting data to an Excel file. It uses the Fluent UI React library for UI components and the XLSX library for handling Excel file operations.
+
+The code starts by importing necessary modules and defining several TypeScript interfaces. These interfaces (`IMakerStyleProps`, `IMakerButtonProps`, `IDatasetToExcelProps`) define the shape of the props that the main component, `ComponentRenderer`, expects.
+
+The `ComponentRenderer` is a functional component that takes in `IDatasetToExcelProps` as props. It destructures these props and uses them throughout the component. The `handleClick` function is defined within this component. This function is triggered when the button is clicked. It prepares the data for export, converts it into an Excel worksheet, and then writes it to an Excel file.
+
+The component's return statement renders a `DefaultButton` from Fluent UI. If the data is still loading (`itemsLoading` or `isLoading` is true), it renders a button with a spinner icon and a "Loading data" label. If the data has finished loading, it renders a button with an icon and text specified by `buttonProps`, and this button will trigger the `handleClick` function when clicked.
+
+The `getColumnNames` function is used to get the column names from the dataset. The `prepareData` function is used to prepare the data for export. It iterates over the dataset and creates an array of records, each record being an object where the keys are column names and the values are the corresponding values from the dataset.
+
+The `getStyle` function is used to generate the styles for the button based on the `IMakerStyleProps` passed in. It returns an `IButtonStyles` object that is used by Fluent UI's `DefaultButton` component.
+<br><br>
+The selected TypeScript code is a React component that exports a button for exporting data to an Excel file. It uses the Fluent UI React library for UI components and the XLSX library for handling Excel file operations.
+
+The code starts by importing necessary modules and defining several TypeScript interfaces. These interfaces (`IMakerStyleProps`, `IMakerButtonProps`, `IDatasetToExcelProps`) define the shape of the props that the main component, `ComponentRenderer`, expects.
+
+The `ComponentRenderer` is a functional component that takes in `IDatasetToExcelProps` as props. It destructures these props and uses them throughout the component. The `handleClick` function is defined within this component. This function is triggered when the button is clicked. It prepares the data for export, converts it into an Excel worksheet, and then writes it to an Excel file.
+
+The component's return statement renders a `DefaultButton` from Fluent UI. If the data is still loading (`itemsLoading` or `isLoading` is true), it renders a button with a spinner icon and a "Loading data" label. If the data has finished loading, it renders a button with an icon and text specified by `buttonProps`, and this button will trigger the `handleClick` function when clicked.
+
+The `getColumnNames` function is used to get the column names from the dataset. The `prepareData` function is used to prepare the data for export. It iterates over the dataset and creates an array of records, each record being an object where the keys are column names and the values are the corresponding values from the dataset.
+
+The `getStyle` function is used to generate the styles for the button based on the `IMakerStyleProps` passed in. It returns an `IButtonStyles` object that is used by Fluent UI's `DefaultButton` component.
+<br><br>
+
 > A huge thanks goes out to [Hussam Odat](https://www.linkedin.com/in/hussam-odat-5075aa73) who created the initial code that this custom control was created from. Hussam's component helped to solve a primary business requirement. An additional requirement needed was support for the dynamic selection of columns from the dataset to output based on the original dataset to export to the Excel spreadsheet. This is where the need for the creation of the DatasetToExcel component was born.
